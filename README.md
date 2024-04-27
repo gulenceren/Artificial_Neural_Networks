@@ -1,17 +1,16 @@
 Artificial Neural Network (ANN);
-    Verisetini pandas ile okuyup bir array aktarıyoruz. numpy array formatına dönüştürdük verileri shuffle ile karıştırdık. X ve y değerlerine X in sıfırıncı elemanlardan df nin son columsdan  1 eksiğine kadar veriler eklenir.Son  columsda y olarak eklenmiştir.25 test 75 train olarak ayrılıp train_test_split işlemi uygulandı. MLP’ye de hidden layer 100 olarak ayrıldı bu işlemi 3 defa tekrarlayacaktır.
+   We read the dataset with pandas and transfer it to an array. We converted it to numpy array format and shuffled the data with shuffle. Data is added to the x and y values from the zero elements of X to 1 less than the last colums of df. The last colums were added as y. 25 was split as test 75 train and train_test_split operation was applied. MLP will repeat this process 3 times and the hidden layer is divided as 100.
 
 Deep Neural Network (DNN);
-    1.	Oluşturduğumuz menü ile h2o ve keras üzerinden yapılan dnn işlemlerini yapıp verisetlerimizi okuyup h2o ile  classifion isimli colums y olarak atayıp hypers params methodunun içinde epoch sayılarını 100,200,300 olarak belirliyoruz. Hidden layer olacak 3 hidden layer ve 2 deneme yapması için gerekli parametreler girildi. H2O nun GridSerach ile beraber deeplearning kullanılarak en iyi modellere sıralandırıldı. Daha sonra best modelin acc bulundu.
+   1. With the menu we created, we do the dnn operations via h2o and keras, read our datasets, assign the colums named classifion as y with h2o and set the epoch numbers as 100,200,300 in the hypers params method. The necessary parameters were entered for 3 hidden layers to be hidden layers and 2 trials. The best models were ranked using deeplearning with H2O's GridSerach. Then the acc of the best model was found.
 
-    2.	Train ve test verileri okunup bu veriler üzerinden belirlenen özellik sayılarına göre iloc ile parçalama işlemi yapıldı. Categorical yapısı ile çevrimler sağlandı. Acc değeri 0.62 den küçük olduğu sürece döngüye girip daha sonra 6 optimizer kullanılarak işlemler yürütüldü.16 nöronlu tek bir hidden layer kullanılmıştır 2 nöronlu bir çıkış belirlendi. 150 epochs yaparak 10 denemede eniyi sonuç ve modeli kayıt edildi.
-
+     2. Train and test data were read and the partitioning process was performed with iloc according to the number of features determined over these data. Cycles were provided with the Categorical structure. As long as the Acc value was less than 0.62, it was looped and then processes were carried out using 6 optimizers. A single hidden layer with 16 neurons was used and an output with 2 neurons was determined. By doing 150 epochs, the best result and model were recorded in 10 trials.
+     
 Convolutıonal Neural Networks (CNN);
-    1.	Uygulama dosyamız ile aynı konumda bulunması gereken ./Images klasörü yol olarak belirlendi. Kategoriler olarak bu yolun içindeki 3 adet resim klasörünün isimleri kategori olarak belirlendi.
-    2.	Bu resimler yeniden 70 size olacak şekilde yeniden düzenlenip grayscale ile ayarlar yapıldı.Sınıf sayısı yapısına göre train ve test dizileri oluşturuldu.
-    3.	Bu veriler karıştırılıp train üzerinde kategori yapılarına göre X ve y oluşturulup, test üzerinden test_X ve test_y oluşturuldu. Yeniden reshape ile boyutlandırıldı. Pickle ile yeniden kayıt edilip dosyalar geri açıldı.
-    4.	Type(tip) dönüşümü yapıldı.3 kategori olduğu için categorial işlemi yapıldı. Model oluşturulurken X.shape[1:] kadar giriş, 64nöronlu 2 adet hidden layer ve 3 adet çıkış olucak şekilde model oluşturuldu.
-    5.	3 optimizers kullanılarak en iyi sonucu veren model kayıt edildi.
-
+    1. The ./Images folder, which should be in the same location as our application file, has been set as the path. As categories, the names of the 3 image folders in this path were determined as categories.
+    2. These images were rearranged to be 70 size again and settings were made with grayscale. Train and test sequences were created according to the class number structure.
+    3. This data was mixed and X and y were created according to the category structures on train, and test_X and test_y were created on test. Resized with reshape. Re-recorded with Pickle and opened the files back.
+    4. Type transformation was done. Since there are 3 categories, categorial operation was done. While creating the model, the model was created as input as X.shape[1:], 2 hidden layers with 64 neurons and 3 outputs.
+    5. The model that gives the best result was saved using 3 optimizers.
 
 h20, xlwt, opencv yüklenmeli
